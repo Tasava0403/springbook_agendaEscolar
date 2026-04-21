@@ -22,5 +22,5 @@ public class Materia {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Usuarios usuarios;
+    private Usuarios usuario;
 }
