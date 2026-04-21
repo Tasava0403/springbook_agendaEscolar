@@ -38,4 +38,34 @@ public class MateriasServicelmp implements IMateriasService {
         response.setIdUsuario(materiaSaved.getUsuarios().getId_usuario());
         return response;
     }
+
+    @Override
+    public MateriaResponseRequest actualizarMateria(Integer id, MateriasRequest request) {
+
+        // 1. Buscar la materia existente
+        Materia materia = iMateriasRepository
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("Materia no encontrada con id: " + id));
+
+        // 2. Buscar el usuario si se quiere cambiar
+        Usuarios usuarios = iUsuarioRepository
+                .findById(request.getIdUsuario())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        // 3. Actualizar los campos
+        materia.setNombre_materia(request.getNombreMaterias());
+        materia.setProfesor(request.getNameProfesor());
+        materia.setUsuarios(usuarios);
+
+        // 4. Guardar los cambios
+        Materia materiaActualizada = iMateriasRepository.save(materia);
+
+        // 5. Construir respuesta
+        MateriaResponseRequest response = new MateriaResponseRequest();
+        response.setNombreMaterias(materiaActualizada.getNombre_materia());
+        response.setNombreProfesor(materiaActualizada.getProfesor());
+        response.setIdUsuario(materiaActualizada.getUsuarios().getId_usuario());
+
+        return response;
+    }
 }

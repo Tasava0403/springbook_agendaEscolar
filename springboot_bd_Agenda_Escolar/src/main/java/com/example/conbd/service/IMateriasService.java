@@ -5,4 +5,6 @@ import com.example.conbd.model.response.MateriaResponseRequest;
 
 public interface IMateriasService {
     MateriaResponseRequest guardarMaterias(MateriasRequest request);
+
+    MateriaResponseRequest actualizarMateria(Integer id, MateriasRequest request);
 }
