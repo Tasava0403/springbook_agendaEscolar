@@ -6,6 +6,7 @@ import com.example.conbd.entity.Usuarios;
 import com.example.conbd.model.request.HorarioRequest;
 import com.example.conbd.model.request.MateriasRequest;
 import com.example.conbd.model.response.HorarioResponse;
+import com.example.conbd.model.response.MateriaResponseRequest;
 import com.example.conbd.model.response.MateriasResponse;
 import com.example.conbd.repository.IHorariosRepository;
 import com.example.conbd.repository.IMateriasRepository;
@@ -33,7 +34,7 @@ public class MateriasServicelmp implements IMateriasService {
 
     @Transactional
     @Override
-    public MateriasResponse guardarMaterias(MateriasRequest request) {
+    public MateriasResponse guardarMaterias2(MateriasRequest request) {
 
         Usuarios usuarios = iUsuarioRepository
                 .findById(request.getIdUsuario())
@@ -94,7 +95,7 @@ public class MateriasServicelmp implements IMateriasService {
     }
 
     @Override
-    public MateriasResponse actualizarMateria(Integer id, MateriasRequest request) {
+    public MateriasResponse actualizarMateria2(Integer id, MateriasRequest request) {
         Materia subject = iMateriasRepository
                 .findById(id)
                 .orElseThrow(() -> new RuntimeException("Materia no encontrada"));
@@ -158,7 +159,7 @@ public class MateriasServicelmp implements IMateriasService {
         // 3. Actualizar los campos
         materia.setNombre_materia(request.getNombreMaterias());
         materia.setProfesor(request.getNameProfesor());
-        materia.setUsuarios(usuarios);
+        materia.setUsuario(usuarios);
 
         // 4. Guardar los cambios
         Materia materiaActualizada = iMateriasRepository.save(materia);
@@ -167,7 +168,7 @@ public class MateriasServicelmp implements IMateriasService {
         MateriaResponseRequest response = new MateriaResponseRequest();
         response.setNombreMaterias(materiaActualizada.getNombre_materia());
         response.setNombreProfesor(materiaActualizada.getProfesor());
-        response.setIdUsuario(materiaActualizada.getUsuarios().getId_usuario());
+        response.setIdUsuario(materiaActualizada.getUsuario().getId_usuario());
 
         return response;
     }
