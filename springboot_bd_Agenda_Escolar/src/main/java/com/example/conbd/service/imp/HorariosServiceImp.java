@@ -47,6 +47,7 @@ public class HorariosServiceImp implements IHorarioUsuario {
             response.setIdUsuario(s.getUsuario().getId_usuario());
             response.setNombreMaterias(s.getNombre_materia());
             response.setNombreProfesor(s.getProfesor());
+            response.setIdMateria(s.getId_materia());
 
             List<HorarioResponse> listaHorariosResponses = new ArrayList<>();
             List<Horarios> horariosEntity = iHorariosRepository.findByMateria(s);

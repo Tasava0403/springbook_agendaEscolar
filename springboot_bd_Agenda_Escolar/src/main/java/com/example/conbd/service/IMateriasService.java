@@ -1,5 +1,6 @@
 package com.example.conbd.service;
 
+import com.example.conbd.model.request.MateriaRequest;
 import com.example.conbd.model.request.MateriasRequest;
 import com.example.conbd.model.response.MateriaResponseRequest;
 import com.example.conbd.model.response.MateriasResponse;
@@ -11,5 +12,5 @@ public interface IMateriasService {
 
     MateriasResponse actualizarMateria2(Integer id, MateriasRequest request);
 
-    MateriaResponseRequest actualizarMateria(Integer id, MateriasRequest request);
+    MateriaResponseRequest actualizarMateria(Integer id, MateriaRequest request);
 }

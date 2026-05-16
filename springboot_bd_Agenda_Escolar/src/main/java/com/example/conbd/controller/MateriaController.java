@@ -1,5 +1,6 @@
 package com.example.conbd.controller;
 
+import com.example.conbd.model.request.MateriaRequest;
 import com.example.conbd.model.request.MateriasRequest;
 import com.example.conbd.model.response.MateriaResponseRequest;
 import com.example.conbd.model.response.MateriasResponse;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/subjects")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class MateriaController {
 
     @Autowired
@@ -46,7 +48,7 @@ public class MateriaController {
     }
 
     @PutMapping("/materias/{id}")
-    public ResponseEntity<MateriaResponseRequest> updateSubject(@PathVariable Integer id, @RequestBody MateriasRequest request) {
+    public ResponseEntity<MateriaResponseRequest> updateSubject(@PathVariable Integer id, @RequestBody MateriaRequest request) {
 
         MateriaResponseRequest materia = iMateriasService.actualizarMateria(id, request);
         return ResponseEntity.ok(materia);

@@ -4,6 +4,7 @@ import com.example.conbd.entity.Horarios;
 import com.example.conbd.entity.Materia;
 import com.example.conbd.entity.Usuarios;
 import com.example.conbd.model.request.HorarioRequest;
+import com.example.conbd.model.request.MateriaRequest;
 import com.example.conbd.model.request.MateriasRequest;
 import com.example.conbd.model.response.HorarioResponse;
 import com.example.conbd.model.response.MateriaResponseRequest;
@@ -144,7 +145,7 @@ public class MateriasServicelmp implements IMateriasService {
     }
 
     @Override
-    public MateriaResponseRequest actualizarMateria(Integer id, MateriasRequest request) {
+    public MateriaResponseRequest actualizarMateria(Integer id, MateriaRequest request) {
 
         // 1. Buscar la materia existente
         Materia materia = iMateriasRepository
