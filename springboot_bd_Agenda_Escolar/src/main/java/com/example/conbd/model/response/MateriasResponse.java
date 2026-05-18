@@ -10,6 +10,7 @@ public class MateriasResponse {
     private String nombreMaterias;
     private String nombreProfesor;
     private Integer idUsuario;
+    private Integer idMateria;
     private List<HorarioResponse> horarios;
 
 }
