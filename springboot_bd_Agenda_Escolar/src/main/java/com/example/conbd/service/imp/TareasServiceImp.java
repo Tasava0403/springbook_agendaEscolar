@@ -16,8 +16,8 @@ public class TareasServiceImp implements ITareasService {
 
     // MOSTRAR TODAS LAS TAREAS
     @Override
-    public List<Tareas> mostrarTareas() {
-        return repository.findAll();
+    public List<Tareas> mostrarTareas(Integer id){
+        return repository.findByIdUsuario(id);
     }
 
     // GUARDAR TAREA

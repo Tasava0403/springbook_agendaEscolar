@@ -7,7 +7,7 @@ import java.util.List;
 public interface ITareasService {
 
     // MOSTRAR TODAS LAS TAREAS
-    List<Tareas> mostrarTareas();
+    List<Tareas> mostrarTareas(Integer id);
 
     // GUARDAR TAREA
     Tareas guardarTarea(Tareas tarea);

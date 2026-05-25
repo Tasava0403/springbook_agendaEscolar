@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tareas")
-@CrossOrigin("*")
 public class TareasController {
 
     @Autowired
@@ -18,9 +17,9 @@ public class TareasController {
     // =========================
     // GET - MOSTRAR TODAS
     // =========================
-    @GetMapping
-    public List<Tareas> mostrarTareas() {
-        return service.mostrarTareas();
+    @GetMapping("/obtener/{id}")
+    public List<Tareas> mostrarTareas(@PathVariable Integer id){
+        return service.mostrarTareas(id);
     }
 
     // =========================
